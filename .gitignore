@@ -4,3 +4,5 @@ output.txt
 *.out
 *.o
 *.obj
+.cph
+*.prob
