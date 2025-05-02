@@ -6,3 +6,4 @@ output.txt
 *.obj
 .cph
 *.prob
+.qodo
