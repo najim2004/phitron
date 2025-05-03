@@ -2,8 +2,11 @@ input.txt
 output.txt
 *.exe
 *.out
+*.out
 *.o
 *.obj
+*.so
+*.exe
 .cph
 *.prob
 .qodo
