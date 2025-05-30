@@ -31,17 +31,21 @@ void tail_insert(Node *&head, int val)
     }
     current->next = newNode;
 }
-int list_size(Node *head)
+
+bool isDuplicate(Node *head)
 {
-    int count = 0;
+    bool seen[101] = {false};
     Node *current = head;
-    while (current != nullptr)
+    while (current != NULL)
     {
-        count++;
+        if (seen[current->val])
+            return true;
+        seen[current->val] = true;
         current = current->next;
     }
-    return count;
+    return false;
 }
+
 int main()
 {
     Node *head = nullptr;
@@ -53,6 +57,6 @@ int main()
             break;
         tail_insert(head, number);
     }
-    cout << list_size(head);
+    isDuplicate(head) ? cout << "YES" : cout << "NO";
     return 0;
 }

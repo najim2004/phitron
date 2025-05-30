@@ -42,6 +42,19 @@ int list_size(Node *head)
     }
     return count;
 }
+int get_value_by_index(Node *head, int index)
+{
+    int count = 0;
+    Node *current = head;
+    while (current != nullptr)
+    {
+        if (count == index)
+            return current->val;
+        count++;
+        current = current->next;
+    }
+    return -1;
+}
 int main()
 {
     Node *head = nullptr;
@@ -53,6 +66,19 @@ int main()
             break;
         tail_insert(head, number);
     }
-    cout << list_size(head);
-    return 0;
+    int size = list_size(head);
+    int mid = size / 2;
+    if (size % 2 == 0)
+    {
+        int value1 = get_value_by_index(head, mid - 1);
+        int value2 = get_value_by_index(head, mid);
+        cout << value1 << " " << value2;
+    }
+    else
+    {
+        int value1 = get_value_by_index(head, mid);
+        cout << value1;
+
+        return 0;
+    }
 }

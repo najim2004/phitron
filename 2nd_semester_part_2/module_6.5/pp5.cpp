@@ -31,19 +31,24 @@ void tail_insert(Node *&head, int val)
     }
     current->next = newNode;
 }
-int list_size(Node *head)
+
+bool isSorted(Node *head, int order = 1)
 {
-    int count = 0;
     Node *current = head;
-    while (current != nullptr)
+    while (current->next != nullptr)
     {
-        count++;
+        if (order >= 0 && current->val > current->next->val)
+            return false;
+        else if (order < 0 && current->val < current->next->val)
+            return false;
         current = current->next;
     }
-    return count;
+    return true;
 }
+
 int main()
 {
+    int q;
     Node *head = nullptr;
     while (true)
     {
@@ -53,6 +58,9 @@ int main()
             break;
         tail_insert(head, number);
     }
-    cout << list_size(head);
+    if (isSorted(head))
+        cout << "YES";
+    else
+        cout << "NO";
     return 0;
 }
