@@ -1,4 +1,4 @@
-USE phitron;
+USE student;
 
 CREATE TABLE Student (
     id INT PRIMARY KEY AUTO_INCREMENT,
